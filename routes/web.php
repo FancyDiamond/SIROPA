@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/','FrontEndController@index');
+
+/*
+Route::get('index', function () {
+    return view('index');
 });
+*/
+Route::resource('usuario','UsuarioController');
+
+Route::resource('login','LoginController');
