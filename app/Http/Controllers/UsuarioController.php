@@ -40,14 +40,14 @@ class UsuarioController extends Controller
     {
         //
         \Siropa\User::create([
-            'nombre'=>$request['Nombre'],
-            'clave_fun'=>$request['Clavefuncionario'],
-            'email'=>$request['Email'],
-            'password'=>bcrypt($request['Password']),
-            'telefono'=>$request['Telefono'],
-            'direccion'=>$request['Direccion'],
-            'municipio'=>$request['Municipio'],
-            'puesto'=>$request['Puesto'],
+            'nombre'=>$request['nombre'],
+            'clave_fun'=>$request['clave_fun'],
+            'email'=>$request['email'],
+            'password'=>bcrypt($request['password']),
+            'telefono'=>$request['telefono'],
+            'direccion'=>$request['direccion'],
+            'municipio'=>$request['municipio'],
+            'puesto'=>$request['puesto'],
         ]);
         return "Usuario Registrado";
         //return redirect('/usuario')->with('message','store');
@@ -73,6 +73,8 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         //
+        $user = \Siropa\User::find($id);
+        return view('usuario.edit',['user'=>$user]);
     }
 
     /**
@@ -85,6 +87,10 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = \Siropa\User::find($id);
+        $user -> fill($request->all());
+        $user -> save();
+
     }
 
     /**
@@ -96,5 +102,7 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         //
+        \Siropa\User::destroy($id);
+        return Redirect('/usuario');
     }
 }

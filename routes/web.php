@@ -12,6 +12,7 @@
 */
 
 Route::get('/','FrontEndController@index');
+Route::get('admin','FrontEndController@admin');
 
 /*
 Route::get('index', function () {
@@ -21,3 +22,6 @@ Route::get('index', function () {
 Route::resource('usuario','UsuarioController');
 
 Route::resource('login','LoginController');
+
+Route::resource('faseuno', 'ArchiUnoController');
+Route::resource('fasedos', 'ArchiDosController');
