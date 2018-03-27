@@ -92,16 +92,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#" class="fa fa-plus fa-fw">Agregar</a>
+                                    <a href="/usuario/create" class="fa fa-plus fa-fw">Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="fa fa-list fa-fw">Lista</a>
+                                    <a href="/usuario" class="fa fa-list fa-fw">Lista</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

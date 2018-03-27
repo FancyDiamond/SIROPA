@@ -1,5 +1,14 @@
 @extends('layout.admin')
 
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{Session::get('message')}}
+</div>
+@endif
+
 @section('content')
 
     <div class="container-fluid">
@@ -38,10 +47,12 @@
               </tbody>
               @endforeach
             </table>
+            {!! $users -> render() !!}
           </form>
           <!--form end-->
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+       </div>
       </div>
     </div>
+
 @endsection

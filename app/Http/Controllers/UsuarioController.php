@@ -3,6 +3,10 @@
 namespace Siropa\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Siropa\Http\Requests\UserCreateRequest;
+use Siropa\Http\Requests\UserUpdateRequest;
+use Session;
+
 
 class UsuarioController extends Controller
 {
@@ -14,7 +18,7 @@ class UsuarioController extends Controller
     public function index()
     {
         //return "estoy en el index";
-        $users = \Siropa\User::All();
+        $users = \Siropa\User::paginate(10);
         return view('usuario.index', compact('users'));
     }
 
@@ -36,7 +40,7 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         //
         \Siropa\User::create([
@@ -49,8 +53,8 @@ class UsuarioController extends Controller
             'municipio'=>$request['municipio'],
             'puesto'=>$request['puesto'],
         ]);
-        return "Usuario Registrado";
-        //return redirect('/usuario')->with('message','store');
+        Session::flash('message','Usuario Creado Correctamente');
+        return redirect('/usuario');
     }
 
     /**
@@ -84,12 +88,15 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         //
         $user = \Siropa\User::find($id);
         $user -> fill($request->all());
         $user -> save();
+
+        Session::flash('message','Usuario Modificado Correctamente');
+        return Redirect('/usuario');
 
     }
 
@@ -103,6 +110,8 @@ class UsuarioController extends Controller
     {
         //
         \Siropa\User::destroy($id);
+
+        Session::flash('message','Usuario Eliminado Correctamente');
         return Redirect('/usuario');
     }
 }
