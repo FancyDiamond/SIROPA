@@ -10,6 +10,13 @@ use Session;
 
 class UsuarioController extends Controller
 {
+    public function listing(){
+        $municipios= \Siropa\Municipio::all();
+
+        return response()->json(
+            $municipios->toArray()
+        );
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +37,9 @@ class UsuarioController extends Controller
     public function create()
     {
         //
-        return view('usuario.create');
+        $municipios = \Siropa\Municipio::pluck('municipio','id');
+        return view('usuario.create',compact('municipios'));
+        //return view('usuario.create');
         //return "estoy en el create";
     }
 
@@ -77,8 +86,9 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         //
+        $municipios = \Siropa\Municipio::pluck('municipio','id');
         $user = \Siropa\User::find($id);
-        return view('usuario.edit',['user'=>$user]);
+        return view('usuario.edit',['user'=>$user],compact('municipios'));
     }
 
     /**

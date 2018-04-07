@@ -7,67 +7,68 @@
 <?php
 
     //print_r( json_encode($user));
-  ?>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          {!! Form::model($user,['route'=>['usuario.update', $user->id], 'method'=>'PUT']) !!}
-          <legend>Editar Usuario</legend>
+?>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {!! Form::model($user,['route'=>['usuario.update', $user->id], 'method'=>'PUT']) !!}
+        <legend>Editar Usuario</legend>
 
-          <div class="form-group">
-            {!! Form::label('Nombre') !!}
-            {!! Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Clave de Funcionario') !!}
-            {!! Form::text('clave_fun',null,['class'=>'form-control', 'placeholder'=>'Clave de Funcionario']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Correo') !!}
-            {!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Correo']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Contraseña') !!}
-            {!! Form::password('password',['class'=>'form-control', 'placeholder'=>'Contraseña']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Teléfono') !!}
-            {!! Form::number('telefono',null,['class'=>'form-control', 'placeholder'=>'Teléfono']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Dirección') !!}
-            {!! Form::text('direccion',null,['class'=>'form-control', 'placeholder'=>'Dirección']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Municipio') !!}
-            {!! Form::select('municipio',['Tlaltenango de Sánchez Román'=>'Tlaltenango de Sánchez Román','Momax'=>'Momax','Atolinga'=>'Atolinga','Santa María de la paz'=>'Santa María de la paz','Teúl de Gonzalez Ortega'=>'Teúl de Gonzalez Ortega','Florencia de Benito Juárez'=>'Florencia de Benito Juárez']) !!}
-          </div>
-
-          <div class="form-group">
-            {!! Form::label('Puesto') !!}
-            {!! Form::select('puesto',['Contralor'=>'Contralor','Obra Pública'=>'Obra Pública','Función Pública'=>'Función Pública']) !!}
-          </div>
-
-          {!! Form::submit('Actualizar',['class'=>'btn btn-success']) !!}
-
-          {!! Form::close() !!}
-
-
-          {!! Form::open(['route'=> ['usuario.destroy', $user->id], 'method'=>'DELETE']) !!}
-          <br>
-          {!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}
-
-          {!! Form::close() !!}
+        <div class="form-group">
+          {!! Form::label('Nombre') !!}
+          {!! Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Nombre']) !!}
         </div>
+
+        <div class="form-group">
+          {!! Form::label('Clave de Funcionario') !!}
+          {!! Form::text('clave_fun',null,['class'=>'form-control', 'placeholder'=>'Clave de Funcionario']) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('Correo') !!}
+          {!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Correo']) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('Contraseña') !!}
+          {!! Form::password('password',['class'=>'form-control', 'placeholder'=>'Contraseña']) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('Teléfono') !!}
+          {!! Form::number('telefono',null,['class'=>'form-control', 'placeholder'=>'Teléfono']) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('Dirección') !!}
+          {!! Form::text('direccion',null,['class'=>'form-control', 'placeholder'=>'Dirección']) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('Municipio') !!}
+          {!! Form::select('municipio', $municipios) !!}
+        </div>
+
+        <div class="form-group">
+          {!! Form::label('Puesto') !!}
+          {!! Form::select('puesto',['Contralor'=>'Contralor','Obra Pública'=>'Obra Pública','Función Pública'=>'Función Pública']) !!}
+        </div>
+
+        {!! Form::submit('Actualizar',['class'=>'btn btn-success']) !!}
+
+        {!! Form::close() !!}
+
+
+        {!! Form::open(['route'=> ['usuario.destroy', $user->id], 'method'=>'DELETE']) !!}
+        <br>
+        {!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}
+
+        {!! Form::close() !!}
       </div>
     </div>
   </div>
+</div>
 
 @endsection

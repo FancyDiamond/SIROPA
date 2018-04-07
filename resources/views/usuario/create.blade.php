@@ -4,6 +4,7 @@
 
 @include('alerts.request')
 
+<br>
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-default">
@@ -45,7 +46,7 @@
 
         <div class="form-group">
           {!! Form::label('Municipio') !!}
-          {!! Form::select('municipio',['Tlaltenango de Sánchez Román'=>'Tlaltenango de Sánchez Román','Momax'=>'Momax','Atolinga'=>'Atolinga','Santa María de la paz'=>'Santa María de la paz','Teúl de Gonzalez Ortega'=>'Teúl de Gonzalez Ortega','Florencia de Benito Juárez'=>'Florencia de Benito Juárez']) !!}
+          {!! Form::select('municipio', $municipios) !!}
         </div>
 
         <div class="form-group">

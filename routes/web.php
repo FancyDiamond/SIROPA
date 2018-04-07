@@ -25,3 +25,8 @@ Route::resource('login','LoginController');
 
 Route::resource('faseuno', 'ArchiUnoController');
 Route::resource('fasedos', 'ArchiDosController');
+
+Route::resource('proyecto', 'ProyectoController');
+Route::resource('adquisicion', 'AdquisicionController');
+
+Route::resource('municipio', 'MunicipioController');
