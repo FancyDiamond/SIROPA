@@ -4,6 +4,10 @@
 
 @include('alerts.request')
 <br>
+<?php
+
+    //print_r( json_encode($regions));
+?>
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-default">
@@ -17,11 +21,16 @@
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-			</div>
+				</div>
+			<div class="form-group">
+          	{!! Form::label('Región','Región') !!}
+          	{!! Form::select('municipio_reg', $regions) !!}
+        	</div>
 			<div class="form-group">
 			{!! Form::label('Municipio') !!}
 			{!! Form::text('municipio',null,['class'=>'form-control', 'placeholder'=>'Municipio']) !!}
 			</div>
+			
 			<br>
 			{!! Form::submit('Registrar',['class'=>'btn btn-success']) !!}
 			{!! Form::close() !!}

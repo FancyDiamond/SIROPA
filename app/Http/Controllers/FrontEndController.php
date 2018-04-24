@@ -10,6 +10,7 @@ class FrontEndController extends Controller
     public function index()
     {
     	return view('web.index');
+    	//return ('Ok we are in tha main');
     }
 
     public function admin()

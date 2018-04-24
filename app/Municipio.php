@@ -9,5 +9,5 @@ class Municipio extends Model
     //
     protected $table = "municipio";
 
-    protected $fillable = ['municipio'];
+    protected $fillable = ['municipio','municipio_reg'];
 }

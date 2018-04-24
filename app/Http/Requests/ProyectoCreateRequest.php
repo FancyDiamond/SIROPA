@@ -32,6 +32,11 @@ class ProyectoCreateRequest extends FormRequest
             'nombre_constructora'=>'required',
             'direccion'=>'required',
             'municipio_id'=>'required',
+            'cargo'=>'required',
+            'telefono'=>'required',
+            'email'=>'required',
+            'fecha_inicio'=>'required',
+            'fecha_fin'=>'required',
         ];
     }
 }

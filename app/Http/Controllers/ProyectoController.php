@@ -40,7 +40,7 @@ class ProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(proyectoCreateRequest $request)
+    public function store(ProyectoCreateRequest $request)
     {
         //
         \Siropa\Proyecto::create([
@@ -51,6 +51,11 @@ class ProyectoController extends Controller
             'direccion'=>$request['direccion'],
             'nombre_constructora'=>$request['nombre_constructora'],
             'municipio_id'=>$request['municipio_id'],
+            'cargo'=>$request['cargo'],
+            'telefono'=>$request['telefono'],
+            'email'=>$request['email'],
+            'fecha_inicio'=>$request['fecha_inicio'],
+            'fecha_fin'=>$request['fecha_fin'],
             
         ]);
         Session::flash('message','Proyecto Creado Correctamente');

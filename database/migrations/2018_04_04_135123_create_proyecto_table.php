@@ -22,6 +22,11 @@ class CreateProyectoTable extends Migration
             $table->string('localidad',60);
             $table->string('direccion');
             $table->string('nombre_constructora',60);
+            $table->string('cargo',30);
+            $table->string('telefono',12);
+            $table->string('email',50);
+            $table->string('fecha_inicio',10);
+            $table->string('fecha_fin',10);
             $table->timestamps();
             $table->integer('municipio_id')->unsigned();
             $table->foreign('municipio_id')->references('id')->on('municipio');

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html lang="es">
 
 <head>
@@ -35,8 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    {!!Html::style('AdminStyle/dist/css/jquery-confirm.min.css')!!}
-
+    <!--datedropper-->
 </head>
 
 <body>
@@ -173,7 +172,9 @@
     <!--<script src="js/sb-admin-2.js"></script>-->
     {!!Html::script('AdminStyle/js/sb-admin-2.js')!!}
     <!--Personal script/js-->
-    {!!Html::script('AdminStyle/js/jquery-confirm.min.js')!!}
+    
+    <!--datedropper-->
+    {!! Html::script('AdminStyle/Datedropper3-master/datedropper.js') !!}
 
 </body>
 

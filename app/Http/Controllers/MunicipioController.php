@@ -8,6 +8,7 @@ use Siropa\Http\Requests;
 use Siropa\Http\Requests\MunicipioCreateRequest;
 use Siropa\Http\Controllers\Controller;
 use Siropa\Municipio;
+use Siropa\Region;
 use Illuminate\Routing\Route;
 use Session;
 use Illuminate\Support\Facades\File;
@@ -30,7 +31,8 @@ class MunicipioController extends Controller
     public function index()
     {
         //return('a webo puto');
-        $municipios=\Siropa\Municipio::paginate(5);
+        
+        $municipios = \Siropa\Municipio::paginate(5);
         return view('municipio.index',compact('municipios'));
     }
 
@@ -42,7 +44,8 @@ class MunicipioController extends Controller
     public function create()
     {
         //
-        return view('municipio.create');
+        $regions = \Siropa\Region::pluck('region','id');
+        return view('municipio.create',compact('regions'));
     }
 
     /**
@@ -56,10 +59,11 @@ class MunicipioController extends Controller
         //
             \Siropa\Municipio::create([
             'municipio'=>$request['municipio'],
+            'minicipio_reg'=>$request['municipio_reg'],
             ]);
             Session::flash('message','Municipio Creado Correctamente');
-            $path=public_path($request['municipio']);
-            File::makeDirectory($path, $mode =007,true);
+            //$path=public_path($request['municipio']);
+            //File::makeDirectory($path, $mode =007,true);
             return redirect('/municipio');
         }
 

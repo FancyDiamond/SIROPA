@@ -24,12 +24,14 @@
             <table class="table table-hover">
               <thead>
                 <tr>
+                  <th>Regións</th>
                   <th>Municipio</th>
                   <th>Acción</th>
                 </tr>
               </thead>
               @foreach($municipios as $municipio)
               <tbody>
+                <td>{{$municipios->municipio_reg}}</td>
                 <td>{{$municipio->municipio}}</td>
                 <td>
                   <!--<a class="btn btn-primary btn-sm" >Editar</a>-->
